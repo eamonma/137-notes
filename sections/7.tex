@@ -1,0 +1,34 @@
+\documentclass[../13.tex]{subfiles}
+\begin{document}
+We often talk about the tail of a series when studying infinite sums. Let's compare \DS{\sum_{n = 0}^{\infty} a_n} and \DS{\sum_{n = 1}^{\infty} a_n}.
+
+\thm{
+    \(\sum_{n = 0}^{\infty} a_n\) is convergent \DS{\Longleftrightarrow} \(\sum_{n = 1}^{\infty} a_n\) is convergent \\
+    Moreover, in that case
+    \begin{align*}
+        \sbr{\sum_{n = 0}^{\infty} a_n} = a_0 + \sbr{\sum_{n = 1}^{\infty} a_n}
+    \end{align*}
+}
+
+Proof involves writing the series as a limit of finite sums, then we know the property to be true for finite sums. \\
+Because this is true, we can write \fbox{\DS{\sum_{n}^{\infty} a_n} is convergent / divergent}; in other words, we don't need to specify where it starts. \\
+~\\~\\
+\fbox{
+    \parbox{\textwidth}{\begin{theorem*} ~\\
+            Typical theorem: ~\\
+            \textsc{if} for all \DS{n \in \N}, \fbox{something about \DS{a_n}} \\
+            \textsc{then} the series \(\sum_{n}^{\infty} a_n\) is convergent.
+        \end{theorem*}}
+}
+~\\~\\
+\fbox{
+    \parbox{\textwidth}{\begin{theorem*} ~\\
+            Generalized theorem: ~\\
+            \textsc{if} \DS{\exists n_0 \in \N \textsc{ s.t. } \forall n \in \N, \quad n \geq n_0 \implies} \fbox{something about \DS{a_n}} \\
+            \textsc{then} the series \(\sum_{n}^{\infty} a_n\) is convergent.
+        \end{theorem*}}
+}
+
+
+\newpage
+\end{document}

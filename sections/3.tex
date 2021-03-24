@@ -1,0 +1,22 @@
+
+\documentclass[../13.tex]{subfiles}
+\begin{document}
+Want to calculate \(\sum_{n = 1}^{\infty} \frac{1}{n^2+n}\). Find a formula for the first \(k\) terms, then take the limit as \(k\) goes to infinity. \begin{align*}
+    S   & = \sum_{n = 1}^{\infty} \frac{1}{n^2+n} \\
+    S_1 & = \frac{1}{2}                           \\
+    S_2 & = S_1 + \frac{1}{6} = \frac{2}{3}       \\
+    S_3 & = S_2 + \frac{1}{12} = \frac{3}{4}      \\
+\end{align*}
+Conjecture: \DS{\forall k \geq 1, \quad S_k \ \frac{k}{k+1}} \\
+Proof by induction.
+\subsection*{Another way we could've obtained this:}
+\begin{align*}
+    S_k = \sum_{n = 1}^{k} \frac{1}{n^2+n} & = \sum_{n = 1}^{k} \frac{1}{n(n+1)}                                                                                                                                                             \\
+                                           & = \sum_{n = 1}^{k} \sbr{\frac{1}{n} - \frac{1}{n+1}}                                                                                                                                            \\
+                                           & = \sbr{1 - \cancel{\frac{1}{2}}} + \sbr{\cancel{\frac{1}{2}} - \cancel{\frac{1}{3}}} + \sbr{\cancel{\frac{1}{3}} - \cancel{\frac{1}{4}}} + \dots + \sbr{\cancel{\frac{1}{k}} - \frac{1}{k + 1}} \\
+                                           & = 1 - \frac{1}{k+1} = \frac{k}{k+1}
+\end{align*}
+Then, \DS{\sum_{n = 1}^{\infty} \frac{1}{n^2+n} = \lim_{k\to\infty} \frac{k}{k+1} = 1}
+
+\newpage
+\end{document}

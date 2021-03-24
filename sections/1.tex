@@ -1,0 +1,35 @@
+\documentclass[../13.tex]{subfiles}
+\begin{document}
+We cannot take infinite sums as if they were finite sums. \\
+e.g.: \begin{align*}
+  S      & = \sum_{n=0}^{\infty} x^n = 1 + x + x^2 + x^3 + \dots \\
+  xS     & = x + x^2 + x^3 + x^4+n\dots                          \\
+  S - xS & = 1                                                   \\
+  S      & = \frac{1}{1-x}                                       \\
+  \intertext{When \DS{ x = 2: }}
+  S      & = \frac{1}{1-2} = -1                                  \\
+  S      & = 1 + 2 + 4 + 8 + \dots
+\end{align*}
+e.g.2: \begin{align*}
+  T & = \sum_{n = 0}^{\infty} (-1)^n     \\
+    & = 1 -1 + 1-1 + 1 -1 + 1 -1 + \dots
+\end{align*}
+``We can group the terms like this:''\begin{align*}
+  T & = (1-1) + (1-1) + (1-1) + \dots \\
+    & =0 + 0 + 0 + \dots = 0
+\end{align*}
+Alternatively,
+\begin{align*}
+  T & = 1 (-1 + 1) + (-1 + 1) + (-1 + 1) + \dots \\
+    & = 1 + 0 + 0 + 0 + \dots = 1                \\
+  T = 0 = 1 ???
+\end{align*}
+
+\subsection*{Infinite sums: the right way}
+\begin{itemize}
+  \item What does adding up infinitely many numbers mean? Define what an infinite sum---a ``series''---is.
+  \item When is a series equal to a number? i.e., when is a series convergent?
+  \item Which properties of finite sums carry over to infinite sums?
+\end{itemize}
+\newpage
+\end{document}

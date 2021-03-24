@@ -1,0 +1,26 @@
+\documentclass[../13.tex]{subfiles}
+\begin{document}
+
+A geometric series is one of this form: \boxed{\sum_{n = 0}^{\infty} x^n} where \DS{x} is a constant. \\
+Let \DS{x \in \R}. \DS{S = \sum_{n = 0}^{\infty} x^n = \lim_{k\to\infty} S_k}, where \DS{S_k = \sum_{n = 0}^{k} x^n}.
+\begin{align*}
+    S_k                       & = 1 + x + x^2 + \dots + x^k                                             \\
+    xS_k                      & = x + x^2 + x^3 + \dots + x^{k+1} \qquad \text{multiply by }x           \\
+    S_k - xS_k                & = 1 - x^{k+1}                                                           \\
+    S_k                       & = \frac{1 - x^{k+1}}{1-x} \qquad \text{if } x \neq 1
+    \intertext{Now take the limit as \DS{k} approaches \DS{\infty}}
+    \sum_{n = 0}^{\infty} x^n & = \lim_{k\to\infty} S_k                                                 \\
+                              & = \lim_{k\to\infty} \frac{1-x^{k+1}}{1-x}                               \\
+                              & = \frac{1 - \lim_{k\to\infty} x^{k+1}}{1-x} \qquad \text{by limit laws}
+\end{align*}
+\begin{equation*}
+    \boxed{\sum_{n = 0}^{\infty} x^n = \begin{cases}
+            \displaystyle
+            \frac{1}{1-x}             & \text{if } -1 < x < 1 \\
+            \text{\textsc{divergent}} & \text{otherwise}
+        \end{cases}}
+\end{equation*}
+
+
+\newpage
+\end{document}

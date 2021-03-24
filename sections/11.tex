@@ -1,0 +1,18 @@
+\documentclass[../13.tex]{subfiles}
+\begin{document}
+\textbf{p-series}
+For which values of \(p > 0\) is the series \(\sum_{n = 1}^{\infty} \frac{1}{n^p}\) convergent? Use integral test. \\
+Let \DS{f(x) = \frac{1}{x^p}}, then \(f\) is continuous, positive, and decreasing. \\
+By integral test, \DS{\sum_{n = 1}^{\infty} \frac{1}{n^p} \sim \int_{1}^{\infty} {\frac{1}{x^p}} dx }. \\
+We know that \DS{\int_{1}^{\infty} {\frac{1}{x^p}} dx} is convergent iff \(p > 1\). Thus, \fbox{\DS{\sum_{n = 1}^{\infty} \frac{1}{n^p}} is convergent iff \(p > 1\)}.
+
+\textbf{other}
+Is \(\sum_{n = 2}^{\infty} \frac{1}{n\ln n}\) convergent? It's positive, decreasing, continuous for \(x \geq 2\). \\
+By integral test, \DS{\sum_{n = 2}^{\infty} \frac{1}{n\ln n} \sim \int_{2}^{\infty} {\frac{1}{x\ln x}} dx }. We can find the antiderivative for this function.
+\begin{align*}
+    \int_{2}^{\infty} {\frac{1}{x\ln x}} dx & = \lim_{b\to\infty} \sbr{\int_{2}^{b} {\frac{1}{x\ln x}} dx } = \lim_{b\to\infty} \sbr{\ln\ln x \Big\vert_2^b} \\
+                                            & = \lim_{b\to\infty} \sbr{\ln\ln b - \ln\ln 2} = \infty
+\end{align*}
+So by the integral test, the series diverges.
+\newpage
+\end{document}

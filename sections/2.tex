@@ -1,0 +1,39 @@
+\documentclass[../13.tex]{subfiles}
+\begin{document}
+
+A series is an infinite sum: \begin{align*}
+    \sum_{n = 1}^{\infty} a_n = a_1 + a_2 + a_3 + \dots
+\end{align*}
+A series is an infinite list: \begin{align*}
+    \{ a_n \}_{n=1}^\infty = a_1, a_2, a_3, \dots
+\end{align*}
+
+\emph{e.g.} \DS{S = \sum_{n = 1}^{\infty} \frac{1}{2^n} = \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \dots = 1 ~ ? }
+\begin{align*}
+    S_1 & = \frac{1}{2}                                                                                            \\
+    S_2 & = \frac{1}{2} + \frac{1}{4} = \frac{3}{4}                                                                \\
+    S_3 & = \frac{1}{2} + \frac{1}{4} + \frac{1}{8} = \frac{7}{8}                                                  \\
+    \vdots                                                                                                         \\
+    S_k & = \frac{1}{2} + \frac{1}{4} + \dots + \frac{1}{2^k} = \sum_{n = 1}^{k} \frac{1}{2^n} = 1 - \frac{1}{2^k} \\
+    S   & =\lim_{k\to\infty} S_k = 1
+\end{align*}
+
+To sum the series \DS{\sum_{n = 1}^{\infty} a_n}, \begin{itemize}
+    \begin{multicols}{2}
+
+        \item First construct the sequence of \emph{partial sums} \DS{\{ S_k \}_{k=1}^\infty} \begin{align*}
+            {S}_{1} & = {a}_{1}                                               \\
+            {S}_{2} & = {a}_{1} + {a}_{2}                                     \\
+            {S}_{3} & = {a}_{1} + {a}_{2} + {a}_{3}                           \\
+            \dots                                                             \\
+            {S}_{k} & = {a}_{1} +  \dots + {a}_{k} = \sum_{n = 1}^{k} {a}_{n} \\
+        \end{align*}
+        \item Then, compute its limit: \begin{align*}
+            \sum_{n = 1}^{\infty} a_n \ \lim_{k\to\infty} S_k
+        \end{align*}
+    \end{multicols}
+\end{itemize}
+This series is \emph{convergent} when this limit exists. Otherwise, it is \emph{divergent}.
+\newpage
+
+\end{document}

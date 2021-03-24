@@ -1,0 +1,48 @@
+\documentclass[../13.tex]{subfiles}
+\begin{document}
+This refers to these two properties:\\
+\begin{minipage}{0.5\linewidth}
+    \begin{equation*}
+        {\sum_{n = 0}^{\infty} (a_n + b_n) = \sum_{n = 0}^{\infty} a_n + \sum_{n = 0}^{\infty} b_n}
+    \end{equation*}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+    \begin{equation*}
+        {\sum_{n = 0}^{\infty} (ca_n)= c \sum_{n = 0}^{\infty} a_n}
+    \end{equation*}
+\end{minipage}
+Finite sums can be reordered at-will, but infinite sums cannot.
+
+\thm{
+    \textsc{if} \(\sum_{n = 0}^{\infty} a_n\text{ and }\sum_{n = 0}^{\infty} b_n\) are both convergent, \\
+    \textsc{then} \(\sum_{n = 0}^{\infty} (a_n + b_n)\) is also convergent and
+    \begin{equation*}
+        \sum_{n = 0}^{\infty} (a_n + b_n) = \sum_{n = 0}^{\infty} a_n + \sum_{n = 0}^{\infty} b_n
+    \end{equation*}
+}
+\thm{Let \DS{c \in \R}. \\
+    \textsc{if} \(\sum_{n = 0}^{\infty} a_n\) is convergent, \\
+    \textsc{then} \(\sum_{n = 0}^{\infty} (ca_n)\) is also convergent, and
+    \begin{equation*}
+        \sum_{n = 0}^{\infty} (ca_n) = c \sum_{n = 0}^{\infty} a_n
+    \end{equation*}}
+
+\begin{proof} for \emph{Theorem 6.1}
+    \begin{align*}
+        \sum_{n = 0}^{\infty} a_n = \lim_{k\to\infty} S_k, \qquad         & \text{where } S_k = \sum_{n = 0}^{\infty} a_n         \\
+        \sum_{n = 0}^{\infty} b_n = \lim_{k\to\infty} T_k, \qquad         & \text{where } T_k = \sum_{n = 0}^{\infty} b_n         \\
+        \sum_{n = 0}^{\infty} (a_n + b_n) = \lim_{k\to\infty} R_k, \qquad & \text{where } R_k = \sum_{n = 0}^{\infty} (a_n + b_n) \\
+        \text{By properties of finite sums, }                             & \quad R_k = S_k + T_k                                 \\
+        \text{By hypothesis, \emph{the first two limits exist}. Then, by the limit laws, }                                        \\
+        \lim_{k\to\infty} R_k                                             & \lim_{k\to\infty} S_k + \lim_{k\to\infty} T_k
+    \end{align*}
+\end{proof}
+
+This is a template for series---how they're proven. \begin{enumerate}
+    \item Write the infinite sum as a limit of partial sums---finite sums
+    \item Use the properties known to be true for finite sums
+    \item Pass to the limit
+\end{enumerate}
+
+\newpage
+\end{document}

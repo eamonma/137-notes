@@ -1,0 +1,206 @@
+\input{~/preamble.tex}
+
+\usepackage{pgfplots}
+
+\begin{document}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{definition}{Definition}[section]
+{\LARGE \textbf{Unit 13: Series}}
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+\clearpage
+\setcounter{page}{1}
+\section{Infinite sums: a cautionary tale}
+\subfile{./sections/1}
+
+\section{The definition of infinite sum}
+\subfile{./sections/2}
+
+\section{Telescopic series}
+\subfile{./sections/3}
+
+\section{Examples of divergent series from the definition}
+\subfile{./sections/4}
+
+\section{Geometric series}
+\subfile{./sections/5}
+
+\section{Linearity of series}
+\subfile{./sections/6}
+
+\section{The tail of a series}
+\subfile{./sections/7}
+
+\section{A necessary condition for convergence of series}
+\subfile{./sections/8}
+
+\section{Positive series}
+\subfile{./sections/9}
+
+\section{The integral test}
+\subfile{./sections/10}
+
+\section{Integral test examples}
+\subfile{./sections/11}
+
+\section{Comparison tests for series}
+Comparison tests for series and improper integrals are the same. Results based on: \begin{itemize}
+  \item A positive series may only be convergent or divergent to \(\infty\)
+  \item To prove a positive series is convergent, we only need to prove it is not \(\infty\)
+\end{itemize}
+
+\thm{
+  \textbf{\textsc{bct} for series} \\
+  Let \(\sum_{n}^{\infty} a_n\) and \(\sum_{n}^{\infty} b_n\) be two series. \begin{itemize}
+    \item Assume, for every \(n \in \N\), \(a \leq a_n \leq b_n\)
+    \item \textsc{then} \begin{itemize}
+            \item \textsc{if} \DS{\sum_{n}^{\infty} a_n = \infty}, \textsc{then} \DS{\sum_{n}^{\infty} b_n = \infty}.
+            \item \textsc{if} \DS{\sum_{n}^{\infty} b_n < \infty}, \textsc{then} \DS{\sum_{n}^{\infty} a_n < \infty}.
+          \end{itemize}
+  \end{itemize}
+}
+
+\thm{
+  \textbf{\textsc{lct} for series}\\
+  Let \(\sum_{n}^{\infty} a_n\) and \(\sum_{n}^{\infty} b_n\) be two positive series. \begin{itemize}
+    \item \textsc{if} the limit \DS{L = \lim_{n\to\infty} \frac{a_n}{b_n}} exists---is a number---and \(L > 0\).
+    \item \textsc{then} \begin{align*}
+            \sum_{n}^{\infty} a_n \quad \text{and} \quad \sum_{n}^{\infty} b_n
+          \end{align*}
+          are both convergent or both divergent.
+  \end{itemize}
+}
+\newpage
+
+\section{Alternating series}
+\textbf{Definition:} A series \DS{\sum_{n}^{\infty} a_n} is alternating when \(\forall n, a_n a_{n+1} < 0\)\\ This means the terms ``alternate'' between positive and negative.
+
+\textbf{Example:} \begin{align*}
+  S   & = \sum_{n = 1}^{\infty} \frac{(-1)^{n+1}}{n} = 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \frac{1}{5} + \dots \\
+  S_1 & = 1                                                                                                              \\
+  S_2 & = 1 - \frac{1}{2}                                                                                                \\
+  S_3 & = 1 - \frac{1}{2} + \frac{1}{3}                                                                                  \\
+  S_4 & = 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4}                                                                    \\
+  \dots
+\end{align*}
+We notice from a graph that \DS{S_2 < S_4 < S_6 < \dots < S_5< S_3 < S_1}\\
+\DS{\{ S_{2n} \}_n} is increasing and bounded above (by \(S_1\)).\\
+\DS{\{S_{2n+1}\}} is decreasing and bounded below (by \(S_2\)). \\
+Then by \textsc{mct}, both are convergent. \\
+Call \DS{A = \lim_{n\to\infty} a_n}, \DS{B = \lim_{n\to\infty} b_{2n+1}}, then \\
+\begin{align*}
+  S_{2n+1}                    & = S_{2n} + \frac{1}{2n+1} \qquad \text{we can use the limit laws, since all three terms have limits} \\
+  \lim_{n\to\infty}  S_{2n+1} & =\lim_{n\to\infty} S_{2n} +\lim_{n\to\infty} \frac{1}{2n+1}                                          \\
+  B                           & = A + 0
+\end{align*}
+
+\thm{
+\textbf{Lemma:}\\
+Let \DS{\{c_n\}_{n}^{\infty}} be a sequence. \begin{itemize}
+  \item \textsc{if} the sequences of even and odd terms \begin{align*}
+          \{c_{2n}\}_{n}^{\infty} \quad \text{and} \quad \{c_{2n+1}\}_{n}^{\infty}
+        \end{align*}
+        are convergent to the same limit
+  \item \textsc{then} the full sequence \DS{\{c_n\}_{n}^{\infty} } is also convergent to the same limit.
+\end{itemize}
+}
+
+\thm{
+  \textbf{Alternating series test}:\\
+  Consider a series of the form \begin{align*}
+    \sum_{n}^{\infty} (-1)^n b_n \quad \text{or} \quad \sum_{n}^{\infty} (-1)^{n+1} b_n
+  \end{align*}
+  \textsc{if} \begin{enumerate}
+    \item \(\forall n, \quad b_n > 0\)
+    \item the sequence \DS{\{b_n\}_{n}^{\infty} } is decreasing
+    \item \DS{\lim_{n\to\infty} b_n = 0}
+  \end{enumerate}
+  \textsc{then} the series is convergent.
+}
+
+\newpage
+
+\section{Estimating the value of an alternating series}
+Estimate the value of \DS{S = \sum_{n = 1}^{\infty} \frac{(-1)^n}{n^4}} with an error smaller than \(0.001\).
+First, we need to show that it is convergent---it satisfies the hypotheses of the alternating series theorem. By \textsc{ast}, the series is convergent. \\
+The actual value is \DS{S = \sum_{n = 1}^{\infty} \frac{(-1)^n}{n^4} = \lim_{k\to\infty} S_k}. This suggests that we can use \DS{S_k} as an estimate. \\
+Estimate: \DS{S_k = \sum_{n = 1}^{\infty} \frac{(-1)^n}{n^4}} for some large \(k\)? Which value of \(k\)? \\
+We need the error to be smaller than a precise number. Error of estimation: \(\vert S - S_k \vert\).
+\thm{
+  \textbf{Altrenating series theorem, part 2}:
+  consider a series of the form \begin{align*}
+    \sum_{n}^{\infty} (-1)^n b_n \quad \text{or} \quad \sum_{n}^{\infty} (-1)^{n+1} b_n
+  \end{align*}
+  \begin{itemize}
+    \item \textsc{if} it satisfies the same three hypotheses as before
+    \item \textsc{then} \DS{\vert S - S_k \vert < b_{k+1}}
+  \end{itemize}
+  where \(S_k\) is the \(k\)-th partial sum of the series.
+}
+Then, error of estimation: \(\vert S - S_k \vert < \frac{1}{(k+1)^4}\). We need to choose \(k\) so that \DS{\frac{1}{(k+1)^4} < 0.001}. Pick \(k\) to be \(5\). \\
+Estimate: \DS{-1 + \frac{1}{2^4} - \frac{1}{3^4} + \frac{1}{4^4} - \frac{1}{5^4} \approx -0.94753...}.
+
+\newpage
+
+\section{Absolute convergence vs conditional convergence}
+Is \DS{\sum_{n}^{\infty} \frac{\sin n}{n^2}} convergent? \\
+What is the relation between the series \DS{\sum_{n}^{\infty} a_n} and \DS{\sum_{n}^{\infty} \vert a_n \vert}?
+
+\thm{
+  \textbf{Absolute convergence test} \\
+  Let \DS{\sum_{n}^{\infty} a_n} be a series. \begin{itemize}
+    \item \textsc{if} the series \DS{\sum_{n}^{\infty} \vert a_n\vert} is convergent
+    \item \textsc{then} the series \DS{\sum_{n}^{\infty} a_n} is convergent
+  \end{itemize}
+}
+
+We can look at \DS{\sum_{n}^{\infty} \frac{\vert \sin n \vert}{n^2}}. Since it is a positive series, we can use comparison tests. \\
+\DS{0 \leq \frac{\vert \sin n \vert}{n^2} \leq \frac{1}{n^2}}. We know that \DS{\sum_{n}^{\infty} \frac{1}{n^2}} is convergent, so by \textsc{bct}, \DS{\sum_{n}^{\infty} \frac{\vert \sin n \vert}{n^2}} is also convergent. By \textsc{absolute convergence test}, \DS{\frac{\sin n}{n^2}} is also convergent.
+
+\textbf{e.g.} Let \DS{p_n = \begin{cases}
+    1 / n \quad \text{if \(n\) is prime} \\
+    -1 / n \quad \text{otherwise}
+  \end{cases}} \DS{\quad} is \DS{\sum_{n}^{\infty} p_n} convergent?
+
+First, we look at \DS{\sum_{n}^{\infty} \vert p_n \vert}. \DS{\sum_{n}^{\infty} \vert p_n \vert = \sum_{n}^{\infty} \frac{1}{n} = \infty}. \\
+The absolute convergence test does not apply, so we do not know if this series is convergent or divergent.
+
+\df{
+  A convergent series \DS{\sum_{n}^{\infty} a_n} is...\begin{itemize}
+    \item \underline{absolutely convergent} when \DS{\sum_{n}^{\infty} \vert a_n \vert} is also convergent.
+    \item \underline{conditionally convergent} when \DS{\sum_{n}^{\infty} \vert a_n \vert = \infty}.
+  \end{itemize}
+}
+
+For instance, \DS{\sum_{n = 1}^{\infty} \frac{(-1)^{n+1}}{n}} is conditionally convergent. By the alternating series test, it is convergent. \DS{\sum_{n = 1}^{\infty} \frac{1}{n}}, its absolute value, however, is divergent. \\
+For instance, \DS{\sum_{n = 1}^{\infty} \frac{(-1)^{n+1}}{n^2}} is absolutely convergent. By the alternating series test, it is convergent. \DS{\sum_{n = 1}^{\infty} \frac{1}{n^2}}, its absolute value, is also convergent.
+
+\newpage
+\section{Proof of the absolute convergence test}
+\textbf{Notation:} ``\textsc{p.t}'' means ``positive terms'', ``\textsc{n.t}'' means ``negative terms''. For instance, \begin{align*}
+  \sum_{n = 1}^{\infty} \frac{(-1)^{n+1}}{n} & = 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \frac{1}{5} - \frac{1}{6} + \frac{1}{7} + \dots \\
+  \sum_{n = 1}^{\infty} \text{\textsc{p.t}}  & = 1 \qquad + \frac{1}{3} \qquad + \frac{1}{5} \qquad + \frac{1}{7} + \dots                      \\
+\end{align*}
+Essentially, we are replacing the negative terms with zeros.
+\begin{proof}~\\
+  Assume \DS{\sum_{n}^{\infty} \vert a_n \vert < \infty}. \\
+  Then, \DS{\sum_{n}^{\infty} \vert \text{\textsc{p.t}} \vert \leq \sum_{n}^{\infty} \vert a_n \vert} and \DS{\sum_{n}^{\infty} \vert \text{\textsc{n.t}} \vert \leq \sum_{n}^{\infty} \vert a_n \vert}. \\
+  By \textsc{bct}, \DS{\sum_{n}^{\infty} \vert \text{\textsc{p.t}} \vert < \infty} and \DS{\sum_{n}^{\infty} \vert \text{\textsc{n.t}} \vert < \infty} \\
+  Therefore, \DS{\sum_{n}^{\infty} \text{\textsc{p.t}}} and \DS{\sum_{n}^{\infty} \text{\textsc{n.t}}} are convergent.  \\
+  By key observation \DS{\sum_{n}^{\infty} a_n = \sum_{n}^{\infty} \text{\textsc{p.t}} + \sum_{n}^{\infty} \text{\textsc{n.t}}}. Thus \DS{\sum_{n}^{\infty} a_n} is convergent.
+\end{proof}
+
+
+\newpage
+\section{Ratio test}
+To determine if a series is convergent or divergent, by computing a limit. \\
+\fbox{
+  \parbox{\textwidth}{
+    Let \DS{\sum_{n}^{\infty} a_n} be a series. Assume \DS{\forall n, a_n \neq 0}. Assume the limit \begin{equation*}
+      L= \lim_{n\to\infty} \left \vert \frac{a_{n_+1}}{a_n} \right \vert \quad \text{exists or is } \infty
+    \end{equation*}
+  }
+}
+\end{document}

@@ -1,0 +1,30 @@
+\documentclass[../13.tex]{subfiles}
+\begin{document}
+Let \(f\) be a continuous function on \([1, \infty)\). What is the relation between \DS{\sum_{n = 1}^{\infty} f(n)} and \DS{\int_{x}^{\infty} {f(x)} dx }? \\
+A series and an improper integral are defined in a similar manner.
+\begin{align*}
+    \sum_{n = 1}^{\infty} f(n) = \lim_{k\to\infty} \sum_{n = 1}^{k} f(n) \qquad \qquad \int_{1}^{\infty} {f(x)} dx = \lim_{b\to\infty} \int_{1}^{b} {f(x)} dx
+\end{align*}
+Is there a relation? There is a tool for integrals that we don't have for series in that we can calculate the value of an improper integral---if we have an expression for its antiderivative. \\
+I will assume: \begin{itemize}
+    \item \(f\) is positive -- then \DS{\sum_{n = 1}^{\infty} f(n)} and \DS{\int_{1}^{\infty} {f(x)} dx } are convergent or \(\infty\) \begin{quote}
+              There is not a possibility of oscillation
+          \end{quote}
+    \item \(f\) is decreasing
+\end{itemize}
+Plan: find a relation between proper integrals and finite sums, then take the limit. \\
+From a graph, we can tell that \(\int_{1}^{5} {f(x)} dx\) is bounded below by \(\sum_{n = 1}^{4} f(n)\). In order to be able to do this, we need the function to be decreasing, so that the \(f(x)\) at the left endpoint would be the maximum on that interval. \\
+We can also do the same to bound the area below. Then \(\int_{1}^{5} {f(x)} dx \geq \sum_{n = 2}^{5} f(n)\). Then, we arrive at the expression \begin{align*}
+    \sum_{n = 2}^{5} f(n) \leq      & \int_{1}^{5} {f(x)} dx \leq \sum_{n = 1}^{4} f(n)                                                                                                        \\
+    \sum_{n = 2}^{N} f(n) \leq      & \int_{1}^{N} {f(x)} dx \leq \sum_{n = 1}^{N-1} f(n) \quad \text{since we could've picked any other integer}                                              \\
+    \sum_{n = 2}^{\infty} f(n) \leq & \int_{1}^{\infty} {f(x)} dx \leq \sum_{n = 1}^{\infty} f(n)                                            \quad \text{by taking the limit as } n \to \infty \\
+\end{align*}
+Then, if the right series---which bounds the integral above---is convergent, then the integral must also be convergent. If the integral---which bounds the left series above---is convergent, then that series must also be convergent. Since the function is positive, this has to be convergent or \(\infty\). Then, we have proven that \thm{
+Let \(a \in \R\)\\
+Let \(f\) be a \emph{continuous, positive, decreasing} function on [a, \infty) \\
+Then \begin{align*}
+    \int_{a}^{\infty} {f(x)} dx \quad \text{is convergent} \quad \Longleftrightarrow \quad \sum_{n}^{\infty} f(n) \quad \text{is convergent}
+\end{align*}
+Denoted with \(\int_{a}^{\infty} {f(x)} dx \sim \sum_{n}^{\infty} f(n)\)
+}\newpage
+\end{document}

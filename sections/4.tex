@@ -1,0 +1,45 @@
+\documentclass[../13.tex]{subfiles}
+\begin{document}
+\fbox{
+    \begin{minipage}{.5\linewidth}
+        \begin{equation*}
+            \sum_{n = 1}^{\infty} 1
+        \end{equation*}
+    \end{minipage}
+    \begin{minipage}{.5\linewidth}
+        \begin{equation*}
+            \sum_{n = 0}^{\infty} (-1)^n
+        \end{equation*}
+    \end{minipage}}
+
+\emph{e.g.} \DS{S = \sum_{n = 1}^{\infty} 1 = 1 + 1 + 1 + 1 + \dots = \infty}
+\begin{align*}
+    S   & = \lim_{k\to\infty} S_k                      \\
+    S_k & = \sum_{n = 1}^{k} 1 = 1 + 1 + \dots + 1 = k \\
+    S   & = \lim_{k\to\infty} k = \infty
+\end{align*}
+Alternatively, \DS{\sum_{n = 1}^{\infty} 1} is divergent.
+
+\emph{e.g.} \DS{S = \sum_{n = 0}^{\infty} (-1)^n = 1 - 1 + 1 - 1 + \dots}
+\begin{multicols}{2}
+    \begin{align*}
+        S   & = \lim_{k\to\infty} S_k        \\
+        S_k & = \sum_{n = 0}^{\infty} (-1)^n \\
+        S_0 & = 1                            \\
+        S_1 & = 1 - 1 = 0                    \\
+        S_2 & = 1 - 1 + 1= 1                 \\
+        S_3 & = 1 - 1 + 1 -1= 0              \\
+        \dots
+        \intertext{Then, }
+        S_k = \begin{cases}
+            0 \qquad \text{if \DS{k} odd}  \\
+            1 \qquad \text{if \DS{k} even} \\
+        \end{cases}
+    \end{align*}
+    So \DS{\lim_{k\to\infty} S_k \text{ \textsc{dne}}.}
+\end{multicols}
+Alternatively, \DS{\sum_{n = 0}^{\infty} (-1)^n} is divergent.
+
+
+\newpage
+\end{document}

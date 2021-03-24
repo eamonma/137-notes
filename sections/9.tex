@@ -1,0 +1,46 @@
+\documentclass[../13.tex]{subfiles}
+\begin{document}
+We like positive series. \begin{itemize}
+    \item A series \(\sum_{n = 0}^{\infty} a_n\) is \emph{positive} when \DS{\forall n \in \N, ~ a_n > 0}.
+    \item A series \(\sum_{n = 0}^{\infty} a_n\) is \emph{negative} when \DS{\forall n \in \N, ~ a_n < 0}.
+    \item A series \(\sum_{n = 0}^{\infty} a_n\) is \emph{non-negative} when \DS{\forall n \in \N, ~ a_n \geq 0}.
+\end{itemize}
+\begin{align*}
+    \text{An \emph{arbitrary} series may be} \begin{cases}
+        \text{convergent} \\
+        \text{divergent} \begin{cases}
+            \text{to } \infty  \\
+            \text{to } -\infty \\
+            \text{``oscillating''}
+        \end{cases}
+    \end{cases}
+    \text{A \textbf{positive} series may be} \begin{cases}
+        \text{convergent} \\
+        \text{divergent to } \infty
+    \end{cases}
+\end{align*}
+
+There are only two options. \begin{proof}
+    ~\\
+    In general, \DS{\sum_{n = 0}^{\infty} a_n = \lim_{k\to\infty} S_k}, \DS{\quad } where \DS{S_k = \sum_{n = 0}^{k} a_n}.\\
+    Assume the series \DS{\sum_{n = 0}^{\infty} a_n} is positive. Then the sequence \DS{\{ S_n \}_{n=0}^{\infty}} is increasing:  \DS{S_{n+1} - S_n = a_{n+1}} \\
+    Use the Monotone Convergence Theorem: \begin{itemize}
+        \item An \fbox{increasing, bounded} sequence is \fbox{convergent}
+        \item An \fbox{increasing, unbounded} sequence is \fbox{divergent to \DS{\infty}}
+    \end{itemize}
+\end{proof}
+For \textsc{positive series only}, we can use shorthand notation.
+\begin{itemize}
+    \item \DS{\sum_{n}^{\infty} a_n = \infty} means ``divergent''
+    \item \DS{\sum_{n}^{\infty} a_n < \infty} means ``convergent''
+\end{itemize}
+The same applies to non-negative series. \\
+The same applies to eventually non-negative series.
+\subsection*{How does this help?}
+To prove a positive series is convergent, we only have to prove it does not diverge to \DS{\infty}.\\
+Useful theorems which \emph{all rely on the fact that a positive series can only be convergent or infinity}: \begin{enumerate}
+    \item Integral test
+    \item Basic comparison test
+    \item Limit comparison test
+\end{enumerate}
+\end{document}

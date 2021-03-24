@@ -1,0 +1,38 @@
+\documentclass[../13.tex]{subfiles}
+\begin{document}
+\emph{Sequences vs series}: recall that a series is defined as the limit of a sequence---the sequence of partial sums. \\
+So \DS{\sum_{n = 0}^{\infty} a_n = \lim_{k\to\infty} S_k}, \DS{\quad} where \DS{\sum_{n = 0}^{k} a_n} \\
+\fbox{
+\DS{\sum_{n = 0}^{\infty} a_n} is convergent \DS{\Longleftrightarrow} \DS{\{ S_n \}_{n=0}^\infty} is convergent
+}\\
+But what is the relation between \DS{\sum_{n = 0}^{\infty} a_n} and \DS{\{ a_n \}_{n=1}^{\infty}}?
+I expect that if the series of \DS{a} is convergent, then the sequence of \DS{a}---not \DS{S}---is convergent to \(0\).
+
+\thm{
+    \textsc{if} the series \DS{\sum_{n = 0}^{\infty} a_n} is convergent, \\
+    \textsc{then} \DS{\lim_{n\to\infty} a_n = 0 }
+}
+How to use in practice? \begin{enumerate}
+    \item \textsc{if} \DS{\lim_{n\to\infty} a_n = 0} \\
+          \textsc{then} the series \DS{\sum_{n = 0}^{\infty} a_n} may be convergent or divergent.
+    \item \textsc{if} \DS{\lim_{n\to\infty} a_n \neq 0} \\
+          \textsc{then} the series \DS{\sum_{n = 0}^{\infty} a_n} is divergent---the contrapositive.
+\end{enumerate}
+\begin{proof}~\\
+    Assume the series \DS{\sum_{n = 0}^{\infty} a_n} is convergent. \textsc{wts} \DS{\lim_{n\to\infty} a_n = 0}. \\
+    This means the following limit exists:
+    \begin{align*}
+        S & = \lim_{k\to\infty} S_k, \qquad \text{where} S_k = \sum_{n = 0}^{\infty} a_n \\
+        \intertext{Notice that for every \DS{ n \geq 1:}}
+          & a_n = S_n - S_{n - 1} = S - S = 0
+    \end{align*}
+    Then we can use the limit laws:
+    \begin{align*}
+        \lim_{n\to\infty} a_n = \sbr{\lim_{n\to\infty} S_n} - \sbr{\lim_{n\to\infty} S_{n - 1}}
+    \end{align*}
+\end{proof}
+
+\textbf{Note: } we can only quickly conclude that the series is divergent from this, never that it is convergent.
+
+\newpage
+\end{document}
