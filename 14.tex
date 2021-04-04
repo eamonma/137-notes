@@ -1,0 +1,114 @@
+\input{~/preamble.tex}
+
+\usepackage{blindtext}
+
+
+\usepackage{subfiles}
+
+\sectionfont{\color{blue}\selectfont}
+\subsectionfont{\color{green}\selectfont}
+
+\newcommand{\eg}{\textbf{e.g.}~}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+
+\begin{document}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{definition}{Definition}[section]
+{\LARGE \textbf{Unit 13: Series}}
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+\clearpage
+\setcounter{page}{1}
+\section{Power series: an example}
+\eg I want to define a function with this equation: \[g(x) = \sum_{n = 1}^{\infty} \frac{x^n}{n3^n}\]
+For which \(x \in \R\) is \(g(x)\) convergent? We can use the Ratio Test.
+\begin{align*}
+    \text{Call } a_n                                       & = \frac{x^n}{n3^n}                                                      \\
+    L = \lim_{n\to\infty} \cfrac{\abs{a_{n+1}}}{\abs{a_n}} & = \cfrac{\abs{\cfrac{x^{n+1}}{(n+1) 3^{n+1}}}}{\abs{\cfrac{x^n}{n3^n}}} \\
+                                                           & = \frac{\abs{x}}{3}
+\end{align*}
+\begin{itemize}
+    \item If \(\abs{x} < 3\), then \(L = \frac{\abs{x}}{3} < 1\). By Ratio Test, \(g(x)\) is absolutely convergent.
+    \item If \(\abs{x} > 3\), then \(L = \frac{\abs{x}}{3} > 1\). By Ratio test, \(g(x)\) is divergent.
+\end{itemize}
+We don't know what happens at \(x = -3\) or \(x = 3\) yet. \\
+\begin{align*}
+    g(3)  & = \sum_{n = 1}^{\infty} \frac{3^n}{n3^n} = \frac{1}{n}  = \infty \text{ (p-series with \DS{p = 1})} \\
+    g(-3) & = \sum_{n = 1}^{\infty} \frac{(-3)^n}{n3^n} = \frac{(-1)^n}{n} \text{ convergent (by \textsc{ast})} \\
+\end{align*}
+Then, at \(x = -3\), \(g(x)\) is conditionally convergent, and \(3\), it is divergent. \\
+To answer the original question, the domain of \(g = [-3, 3)\) = the \textsc{interval of convergence}. \(3\) = the \textsc{radius of convergence}.
+\newpage
+
+
+
+\section{Power series: the main theorem}
+\subsection*{Motivation}
+\begin{itemize}
+    \item Polynomials are nice
+    \item What about ``infinite polynomials''? \\
+          \[f(x) = c_0 + c_1x + c_2x^2 + c_3x^3 + \dots\]
+          \[\text{or} \quad f(x) = c_0 + c_1 (x - a) + c_2 (x - a)^2 + c_3 (x - a)^3 + \dots\]
+    \item \eg: \begin{itemize}
+              \item \(g(x) = \sum_{n = 1}^{\infty} \frac{x^n}{n3^n}\) has domain \([-3, 3)\)
+              \item \(h(x) = \sum_{n = 0}^{\infty} x^n\) has domain \((-1, 1)\)
+          \end{itemize}
+\end{itemize}
+\df{
+    Let \(a \in \R\). \\
+    A \underline{power series centered at \(a\)} is a function \(f\) defined by an equation like \begin{align*}
+        f(x) = \sum_{n = 0}^{\infty} c_n(x-a)^n = c_0 + c_1(x - a) + c_2(x - a)^2 + \dots
+    \end{align*}
+    where \(c_0, c_1, c_2, \dots \in \R\).
+}
+
+\begin{center}
+    Domain \(f = \{x \in \R ~ : ~ \text{teh series \(f(x)\) is convergent}\}\)
+\end{center}
+Note: \(a \in\) Domain \(f\) \\
+Ultimate goal: write common functions as power series.
+\thm{
+    Let \(f(x) = \sum_{n = 0}^{\infty} c_n (x - a)^n\) be a power series centered at \(a \in \R\). \begin{enumerate}
+        \item The domain of \(f\) is an interval centered at a: \begin{align*}
+                   & (a - R, a + R) \quad (a - R, a + R] \quad \R    \\
+                   & [a - R, a + R] \quad [a - R, a + R) \quad \{a\}
+              \end{align*} \begin{itemize}
+                  \item We call this domain the \underline{interval of convergence} (\textsc{ic}) of \(f\).
+                  \item We call its radius the \underline{radius of convergence}. \(\quad 0 \leq R \leq \infty\)
+              \end{itemize}
+        \item \begin{itemize}
+                  \item In the \textbf{interior} of the \textsc{ic}, the series is absolutely convergent.
+                  \item In the \textbf{exterior} of the \textsc{ic}, the series is divergent.
+                  \item At the endpoints (if any), anything may happen.
+              \end{itemize}
+        \item In the interior of the \textsc{ic}, power series can be ``treated like polynomials''. They can be added, multiplied, composed\dots \\
+              In particular, they can be differentiated or integrated ``term by term'', and this does not change the radius of convergence.
+    \end{enumerate}
+}
+
+\begin{alignat*}{2}
+    f(x)                   & = \sum_{n = 0}^{\infty} c_n x^n             &  & = c_0 + c_1x + c_2x^2 + c_3x^3 + \dots                 \\
+    f'(x)                  & = \sum_{n = 0}^{\infty} c_n n x^{n-1}       &  & = c_1 + 2c_2x + 3c_3x^2 + \dots                        \\
+    \int_{0}^{x} {f(t)} dt & = \sum_{n = 0}^{\infty} \frac{x^{n+1}}{n+1} &  & = c_0x + c_1 \frac{x^2}{2} + c_2 \frac{x^3}{3} + \dots
+\end{alignat*}
+
+\textbf{Goals} \begin{enumerate}
+    \item Write as many functions as possible as power series \\
+          \(\longrightarrow\) Taylor series
+    \item Use that to make limits, integrals, estimations, differential equations, physics,\dots easier.
+\end{enumerate}
+
+\newpage
+\section{Taylor polynomials---the definition with the limit}
+Goal: approximate functions with polynomials. \\
+\(f\): function \\
+\(a \in\) domain \(f\) \\
+\(P\): polynomial \\
+
+I want \(P(x) \approx f(x)\) when \(x\) is close to \(a\). Example: the tangent line. But what is a ``good approximation near a''? \\
+\(R\): "remainder" or "error" \(\quad R(x) = f(x) - P(x)\). I want \(R\) to be small.
+
+\newpage
+\end{document}
