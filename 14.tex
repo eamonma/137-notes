@@ -104,11 +104,186 @@ Ultimate goal: write common functions as power series.
 \section{Taylor polynomials---the definition with the limit}
 Goal: approximate functions with polynomials. \\
 \(f\): function \\
-\(a \in\) domain \(f\) \\
+\(a \in\) Domain \(f\) \\
 \(P\): polynomial \\
 
 I want \(P(x) \approx f(x)\) when \(x\) is close to \(a\). Example: the tangent line. But what is a ``good approximation near a''? \\
-\(R\): "remainder" or "error" \(\quad R(x) = f(x) - P(x)\). I want \(R\) to be small.
+\(R\): "remainder" or "error" \(\quad R(x) = f(x) - P(x)\). I want \(R\) to be small. This means we need \(\lim_{x \to a} R(x) = 0 \) ``fast''. For instance, there are many lines with remainder \(0\), but the tangent line's remainder approaches \(0\) the ``fastest''. But how do we measure how fast the limit is? \\
+We notice that the larger exponent polynomials approach \(0\) faster. We compare the remainder with powers of \(x\).
+\df{
+    Let \(f\) and \(g\) be continuous functions at \(0\). \\
+    Let \(n \in \N\). \\
+    We say that \underline{\(g\) is an approximation for \(f\) near \(0\) of order \(n\)} when
+    \begin{align*}
+        \lim_{x\to0} \frac{f(x) - g(x)}{x^n} = 0
+    \end{align*}
+}
+This means that \(f(x) = g(x) + R(x)\) and as \(x \to 0\), \begin{align*}
+    R(x) \to 0 \quad \text{faster than} \quad x^n \to 0
+\end{align*}
+\df{
+    Let \(a \in \R\). Let \(f\) and \(g\) be continuous functions at \(a\). \\
+    Let \(n \in \N\). \\
+    We say that \underline{\(g\) is an approximation for \(f\) near \(a\) of order \(n\)} when
+    \begin{align*}
+        \lim_{x\to a} \frac{f(x) - g(x)}{(x-a)^n} = 0
+    \end{align*}
+}
+
+\subsection*{First definition of Taylor polynomial}
+\df{
+    Let \(a \in \R\). \\
+    Let \(f\) be a continuous function defined at and near \(a\). \\
+    Let \(n \in \N\). \\
+    The \underline{\(n\)-th Taylor polynoial for \(f\) at \(a\)} is a polynomial \(P_n\) \begin{itemize}
+        \item \dots that is an approximation for \(f\) near \(a\) of order \(n\): \begin{align*}
+                  \lim_{x\to a} \frac{f(x) - P_n(x)}{(x-a)^n} = 0
+              \end{align*}
+        \item with degree at most n
+    \end{itemize}
+}
+
+
 
 \newpage
+\section{Taylor polynomials---the definition with the derivatives}
+\df{
+    A function \(f\) is called \dots \begin{itemize}
+        \item \(C^0\) when \(f\) is continuous
+        \item \(C^1\) when \(f'\) exists and is continuous
+        \item \(C^2\) when \(f'\) and \(f''\) exist and are continuous
+        \item \dots
+        \item \(C^n\) when \(f', f'', \dots, f^{(n)}\) exist and are continuous
+        \item \(C^\infty\) when all derivatives exist (and are continuous)
+    \end{itemize}
+}
+For now, assume \(f\) and \(g\) are \(C^\infty\). Can I transform the condition \begin{align*}
+    \lim_{x\to a} \frac{f(x) - g(x)}{(x-a)^n} = 0
+\end{align*}
+into a condition about their derivatives?
+
+\begin{itemize}
+    \item Call \DS{L = \lim_{x\to a} \frac{f(x) - g(x)}{(x-a)^n}} \begin{itemize}
+              \item If \(f(a) - g(a) \neq 0\), then ``\(L = \frac{\text{not } 0}{0} = \pm \infty\)''.
+              \item So, assume \(f(a) = g(a)\). We get \(0/0\). Use L'hôpital's.
+          \end{itemize}
+    \item \DS{L \stackrel{*}{=} \lim_{x\to a} \frac{f'(x) - g'(x)}{n(x-a)^{n-1}}} \begin{itemize}
+              \item If \(f'(a) - g'(a) \neq 0\), then ``\(L = \frac{\text{not } 0}{0} = \pm \infty\)''
+              \item So, assume \(f'(a) = g'(a)\). We get \(0/0\). Use L'hôpital's.
+          \end{itemize}
+    \item \DS{L \stackrel{*}{=} \lim_{x\to a} \frac{f''(x) - g''(x)}{n(n-1)(x-a)^{n-2}} \dots}
+    \item After using L'hôpital's rule \(n\) times, we get \begin{align*}
+              L \stackrel{*}{=} \lim_{x\to a} \frac{f^{(n)}(x) - g^{(n)}(x)}{n!} = \frac{f^{(n)}(a) - g^{(n)}(a)}{n!} \qquad \text{since the derivatives are continuous}
+          \end{align*}
+\end{itemize}
+\begin{align*}
+    L = 0 \Longleftrightarrow \begin{cases}
+        f(a)         & = g(a)         \\
+        f'(a)        & = g'(a)        \\
+        \dots                         \\
+        f^{(n-1)}(a) & = g^{(n-1)}(a) \\
+        f^{(n)}(a)   & = g^{(n)}(a)   \\
+    \end{cases}
+\end{align*}
+I have used that \(f\) and \(g\) were \(C^n\).
+
+\thm{
+    Let \(a \in \R\). Let \(n \in \N\). \\
+    Let \(f\) and \(g\) be \(C^n\) functions at \(a\). \\
+    The following are equivalent: \begin{enumerate}
+        \item \DS{\lim_{x\to a} \frac{f(x) - g(x)}{(x-a)^n} = 0} \\ (``\(g\) is a good approximation for \(f\) near \(a\)'')
+        \item \DS{f(a) = g(a), f'(a) = g'(a), \dots, f^{n}(a) = g^{n}(a)} \\ (``\(g\) and \(f\) have the same first few derivatives at \(a\)'')
+    \end{enumerate}
+}
+This proof could be made more formal by using induction.
+
+\df{
+    Let \(a \in \R\). \\
+    Let \(n \in \N\). \\
+    Let \(f\) be a \(C^n\) function at \(a\). \\
+    The \underline{\(n\)-th Taylor polynomial for \(f\) at \(a\)} is \begin{itemize}
+        \item a polynomial \(P_n\) such that
+        \item \(P_n(a) = f(a), P_n'(a) = f'(a), \dots P_n^{(n)}(a) = f^{(n)}(a)\)
+        \item with degree at most \(n\).
+    \end{itemize}
+}
+
+This definition is more useful that the original, limit definition for constructing these polynomials. However, we should keep the original definition in mind---it tells us why Taylor polynomials make good approximations. \\
+Notice that this is not a completely new idea: the first Taylor polynomial according to this definition is \(y = P_1(x)\), or the tangent line.
+
+
+
+\newpage
+\section{Taylor polynomials---the formula}
+\begin{center}
+    \fbox{
+        \parbox{45em}{
+            \textbf{Recall:} \\
+            The \(n\)-th \underline{Taylor polynomial \(P_n\)} for the function \(f\) at \(a \in \R\)\dots \begin{itemize}
+                \item is an approximation for \(f\) near \(a\) of order \(n\): \begin{align*}
+                          \lim_{x\to a} \frac{f(x) - P_n(x)}{(x-a)^n} = 0
+                      \end{align*}
+                \item equivalently, has same value and first \(n\) derivatives as \(f\) at \(a\): \begin{align*}
+                          P_n(a) = f(a), ~ P_n'(a) = f'(a), ~ \dots, ~ P_n^{(n)}(a) = f^{(n)}(a)
+                      \end{align*}
+            \end{itemize}
+        }
+    }
+\end{center}
+For simplicity, begin with: \\
+\textbf{Case \(a = 0\)} \\
+\begin{align*}
+    P_n(x) = c_0 + c_1x + c_2x^2 + c_3x^3 + \dots + c_n x^n
+\end{align*} \begin{align*}
+    P_n(0)       & = f(0)       \\
+    P_n'(0)      & = f'(0)      \\
+    P_n''(0)     & = f''(0)     \\
+    \dots                       \\
+    P_n^{(n)}(0) & = f^{(n)}(0)
+\end{align*}
+So, \begin{align*}
+    P_n^{(k)}(0) & = k! \cdot c_k = f^{(k)} \\
+    c_k = \frac{f^{(k)}(0)}{k!}             \\
+    \boxed{P_n(x) = \sum_{k = 0}^{n} \frac{f^{(k)}(0)}{k!} x^k}
+\end{align*}
+Now, how do we \\
+\textbf{Generalize \(a\)?}
+Instead of \begin{align*}
+    P_n(x) = c_0 + c_1x + c_2x^2 + c_3x^3 + \dots + c_n x^n
+\end{align*}
+write \begin{align*}
+    P_n(x) = b_0 + b_1(x - a) + b_2(x - a)^2 + b_3(x - a)^3 + \dots + b_n (x - a)^n
+\end{align*}
+We obtain \begin{align*}
+    \boxed{P_n(x) = \sum_{k = 0}^{n} \frac{f^{(k)}(a)}{k!} (x-a)^k}
+\end{align*}
+\df{
+    \textbf{Third definition of Taylor polynomial}
+    \begin{itemize}
+        \item Let \(a \in \R\)
+        \item Let \(n \in \N\)
+        \item Let \(f\) be a \(C^n\) function at \(a\).
+    \end{itemize}
+    The \underline{\(n\)-th Taylor polynomial} for \(f\) at \(a\) is \begin{align*}
+        P_n(x) = \sum_{k = 0}^{n} \frac{f^{(k)}(a)}{k!} (x-a)^k
+    \end{align*}
+}
+Notes: \begin{itemize}
+    \item degree \(P_n \leq n\)
+    \item The Taylor polynomials of a function are unique
+\end{itemize}
+We can see that the higher degree the Taylor polynomial is, the more accurate the approximation.
+\df{
+    \textbf{Taylor series}
+    \begin{itemize}
+        \item Let \(a \in \R\)
+        \item Let \(f\) be a \(C^\infty\) function at \(a\)
+    \end{itemize}
+    The \underline{Taylor series} for \(f\) at \(a\) is the power series \begin{align*}
+        S(x) = \sum_{k = 0}^{\infty} \frac{f^{(k)}(a)}{k!} (x - a)^k
+    \end{align*}
+}
+Equivalently, \(\forall k \in \N,~ S^{(k)}(a) = f^{(k)}(a)\) \\
+Ideal case: \(f(x) = S(x)\); we call such functions \emph{analytic}. \\
+Note: ``Maclaurin series'' means ``Taylor series at \(0\)''.
 \end{document}
