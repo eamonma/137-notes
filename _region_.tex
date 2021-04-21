@@ -1,4 +1,4 @@
-\input{~/preamble.tex}
+\message{ !name(14.tex)}\input{~/preamble.tex}
 
 \usepackage{blindtext}
 \setcounter{tocdepth}{4}
@@ -15,13 +15,15 @@
 \newcommand\Ccancel[2][black]{\renewcommand\CancelColor{\color{#1}}\cancel{#2}}
 
 \begin{document}
+
+\message{ !name(14.tex) !offset(-3) }
+
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem*{theorem*}{Theorem}
 \newtheorem{definition}{Definition}[section]
 {\LARGE \textbf{Unit 14: Series}}
 \thispagestyle{empty}
 \tableofcontents
-
 \newpage
 \clearpage
 \setcounter{page}{1}
@@ -540,59 +542,6 @@ To prove that the exponential equals its Maclaurin series, all we need to show i
           \end{align*}
           Valid when \(\abs{-\frac{u}{3}} < 1\). This is the same thing as saying that \(\abs{u} < 3\). \(\abs{x - 3} < 3\).
 \end{enumerate}
-
-
-\newpage
-\section{Lograithm as a power series}
-How to write \(\log\) as power series?
-Let \(g(x) = \ln x\). Domain \(g=(0, \infty)\)
-\begin{itemize}
-\item Option 1: Taylor series centered at \(a > 0\) of \(g(x) = \ln x\).
-  \item Write \(f(x) = \ln (1+x)\) as power series at \(0\) .
-    \begin{align*}
-      f'(x)&= \frac{1}{1+x} \quad \br{\frac{1}{1-x} = \sum_{n = 0}^{\infty} x^{n} \quad \text{for } \abs{x} < 1 }\\
-       &= \frac{1}{1-(-x)} = \sum_{n = 0 }^{\infty} (-x)^{n}  = \sum_{n = 0}^{\infty} (-1)^{n} x^{n} \quad \br{\text{for } \abs{x} < 1  }\\
-      f(x) &= \sum_{n = 0}^{\infty} (-1)^{n} \frac{x^{n+1}}{n+1} + C \quad \br{\text{for} \abs{x} < 1}\\
-      \intertext{Evaluate at \(x = 0\):}
-      f(0) = 0 + C \quad C = 0 \\
-      \ln (1+x) & = \sum_{n = 0}^{\infty} (-1)^{n} \frac{x^{n+1}}{n+1}\\
-           & = \sum_{m = 1}^{\infty} (-1)^{m - 1} \frac{x^{m}}{m}
-    \end{align*}
-\end{itemize}
-Remember, true only for \(\abs{x} < 1\).
-
-
-
-
-\newpage
-\section*{Taylor applications: estimations}
-\eg Estimate \(\sqrt{e}\) with error  \(< 0.001\).
-\begin{itemize}
-    \item Let \(f(x) = e^{x}\). Want \(f(\frac{1}{2})\).
-    \item \(\frac{1}{2} = \sum_{k = 0}^{\infty} \frac{1}{k!}\frac{1}{2^{k}} = P_{n} (\frac{1}{2}) + R_{n}(\frac{1}{2})\)
-    \item \(P_{n}(\frac{1}{2}) = \sum_{k = 0}^n \frac{1}{k!} \frac{1}{2^{k}}\)
-        \item Want \(\abs{R_{n}(\frac{1}{2})}< 0.001\)
-
-\end{itemize}
-    \subsection*{Use Lagrange's remainder theorem!}
-    \begin{align*}
-\exists \xi \in (0, \frac{1}{2}) \quad \text{such that} \quad R_{n} \br{\frac{1}{2}} = \frac{f^{(n+1)} (\xi)}{(n+1)!} \sbr{\frac{1}{2} - 0}^{n+1} \\
-0 < R_n(\frac{1}{2}) < \frac{  e ^{\frac{1}{2}}  }{(n+1)!} \frac{1}{2 ^{n+1} } < \frac{2}{2 ^{n+1} (n+1) !} < {\color{red} 0.001}
-    \end{align*}
-Need \(2 ^{n} (n + 1) ! > 1000\); \(n = 4\) works: \(2^5 \cdot 5! = 16 \cdot 120 > 1000\).
-Estimation for \(\sqrt{e}\): \begin{align*}
-P_4 (\frac{1}{2}) = \sum_{k = 0}^{4} \frac{1}{k! 2^k} = \dots = \frac{211}{128} \approx 1.65843\dots
-\end{align*}
-
-
-
-\newpage
-\section{Taylor applications: integrals}
-\begin{itemize}
-    \item Compute \(I = \int_{0}^{3} {e^{-x^2}} dx \).
-    \item \(e^x = \sum_{n = 0}^{\infty} \frac{x^n}{n!}\) for all \(x\).
-    \item Since there is no domain restriction, we replace \(x\) with \(-x^2\). \begin{align*}
-        e^{-x^2} = \sum_{n = 0}^{\infty} \frac{(-x^2)}{n!} \qquad \text{for all } x
-    \end{align*}
-\end{itemize}
 \end{document}
+
+\message{ !name(14.tex) !offset(-547) }
