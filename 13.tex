@@ -199,6 +199,28 @@ Essentially, we are replacing the negative terms with zeros.
 \end{proof}
 
 
+
+\newpage
+\section{Infinite sums are not commutative}
+This is at the heart of the difference between absolutely convergent and conditionally convergent series.
+\begin{align*}
+    1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \frac{1}{5} - \frac{1}{6} + \frac{1}{7} - \frac{1}{8} + \frac{1}{9} - \frac{1}{10} + \frac{1}{11} - \frac{1}{12} + \ldots \\
+    = \ln 2 \\
+    1 + \frac{1}{3}- \frac{1}{2} +\frac{1}{5} + \frac{1}{7} - \frac{1}{4} + \frac{1}{9} + \frac{1}{11} - \frac{1}{6} + \frac{1}{13} + \frac{1}{15} - \frac{1}{8} + \ldots \\
+    = \frac{3}{2} \ln 2
+.\end{align*}
+\thm{
+    \begin{itemize}
+        \item If a series is \emph{absolutely convergent}, then it can be ``reordered''. This won't change the value of the sum.
+        \item If a series is \emph{conditionally convergent}, then 
+            \begin{itemize}
+                \item \ldots reordering it may change its value
+                \item \ldots it can be reordered to make it convergent to any number we want
+                \item \ldots it can be reordered to make it divergent in any way we want.
+            \end{itemize}
+    \end{itemize}
+}
+
 \newpage
 \section{Ratio test}
 To determine if a series is convergent or divergent, by computing a limit. \\
