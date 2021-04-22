@@ -657,4 +657,42 @@ Denominator
    \intertext{Evaluate at \DS{x = 2: \sum_{n = 0}^{\infty} \frac{2^n}{(n+2)n!} = \frac{e^2 + 1}{4}}}
     \end{align*}
 \end{itemize}
+
+
+\newpage
+\section{Taylor applications: physics}
+\begin{itemize}
+    \item Use physics principles to derive equations that regulate the behaviour of a system
+    \item The equations are too complicated!
+    \item Approximate euqations with Taylor polynomials
+    \item Profit.
+\end{itemize}
+\subsection*{Kinetic energy of a particle}
+\begin{itemize}
+    \item $m_0: $ mass ``at rest''
+    \item $v: $ velocity
+    \item $c: $ speed of light
+    \item $m: $ mass
+\end{itemize}
+\begin{itemize}
+    \item Classical physics:
+        \begin{align*}
+            T = \frac{1}{2} m_0 v^2
+        .\end{align*}
+    \item Relativity:
+        \begin{align*}
+            T &= mc^2 - m_0 c^2 = \frac{m_0}{\sqrt{1-\br{\frac{v}{c}}^2} } - m_0 c^2
+        .\end{align*}
+\end{itemize}
+Relativity is the better model, but classical physics is a model that works perfectly fine when velocities are small. More precisely, we should be able to obtain the classical equation as an approximation when $\frac{v}{c}$ is small.\\
+Indeed, the classical expression for kinetic energy is the smallest nonzero Taylor polynomial of the relativistic expression for kinetic energy. 
+\begin{align*}
+    T &= m_0 c^2 \sbr{\frac{1}{\sqrt{1 - (\frac{v}{c})^2} } - 1} \quad \text{as a function of $v$} \\
+    f(x) &= (1-x)^{-\frac{1}{2}} \quad \text{isolate the essence of the function} \\
+         &\approx f(0) + f'(x) \cdot x \\
+         &= 1 + \frac{1}{2} x \\
+         \frac{1}{\sqrt{1-x^2} } &\approx 1 + \frac{1}{2} x^2    \\
+         T &= m_0 c^2 \sbr{\frac{1}{\sqrt{1 - (\frac{v}{c})^2} } - 1}= m_0 c^2 \sbr{\frac{1}{2}\br{\frac{v}{c}}^2} \quad \text{substituting} \\
+           &= \frac{1}{2}m_0 v^2    
+.\end{align*}
 \end{document}
