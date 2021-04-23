@@ -632,7 +632,7 @@ Denominator
     \item (+) \(x \sin x = x \sbr{{\color{red} x } - {\color{blue} \frac{1}{3!} x^3 } + \frac{1}{5!} x^5} - \dots\)
     \item (-) \(\ln (1+ x^2) = {\color{red} x^2 } - {\color{blue} \frac{1}{2}(x^2)^2 } + \frac{1}{3}(x^2)^3 - \dots\)
     \begin{align*}
-    x\sin x - \ln (1+x^2) = {\color{red} \sbr{1 - 1}x^2 } + {\color{blue} \sbr{-1\frac{1}{6} + \frac{1}{2}} x^4 } + \dots = \frac{1}{3} x^4 + \text{hiogher order terms}
+    x\sin x - \ln (1+x^2) = {\color{red} \sbr{1 - 1}x^2 } + {\color{blue} \sbr{-1\frac{1}{6} + \frac{1}{2}} x^4 } + \dots = \frac{1}{3} x^4 + \text{higher order terms}
     \end{align*}
 \end{itemize}
 \begin{align*}
@@ -647,7 +647,7 @@ Denominator
 \eg 1: compute \(A = \sum_{n = 1}^{\infty} \frac{n}{2^n}\)
 \begin{itemize}
     \item Want \DS{\sum_{n = 1}^{\infty} n x^n} when \(x = \frac{1}{2}\). This is almost, but not quite, the geometric series---\(\sum_{n = 0}^{\infty} x^n\), except there's an additional \(n\). \begin{align*}
-    \sum_{n = 1}^{\infty} n x^{n-1} &= \frac{d}{dx} \sum_{n = 0}^{\infty} x^n  = \frac{d}{dx}\frac{1}{1-x} = \frac{1}{(1-x)^2} \\
+            \sum_{n = 1}^{\infty} n x^{n-1} = \frac{d}{dx} \sum_{n = 0}^{\infty} x^n &= \frac{d}{dx}\frac{1}{1-x} = \frac{1}{(1-x)^2} \\
     \sum_{n = 1}^{\infty} nx^n &= \frac{x}{(1-x)^2}
     \end{align*}
     \item Evaluate at \(x = \frac{1}{2}: \sum_{n = 1}^{\infty} n \frac{1}{2^n} = \frac{\frac{1}{2}}{(1-\frac{1}{2})^2} = 2\)
@@ -659,7 +659,7 @@ Denominator
     \begin{align*}
     x^{n+1} &= \frac{x^{n+2}}{(n+2)}\\
     \int \sum_{n = 0}^{\infty} \frac{x^{n+1}}{n!} dx &= \sum_{n = 0}^{\infty} \frac{x^{n+2}}{(n+2)n!} + C \\
-    \int xe^x x = \int \sum_{n = 0}^{\infty} \frac{x^{n+1}}{n!} dx &= \sum_{n = 0}^{\infty} \frac{x^{n+2}}{(n+2)n!} + C
+    \int xe^x x = \int \sum_{n = 0}^{\infty} \frac{x^{n+1}}{n!} dx &= \sum_{n = 0}^{\infty} \frac{x^{n+2}}{(n+2)n!} + C \\
    (x-1)e^x & = \sum_{n = 0}^{\infty} \frac{x^{n+2}}{(n+2)n!}  + C \\
    \intertext{Evaluate at \(x = 0: -1 = 0 + C; C = -1\)}
    \sum_{n = 0}^{\infty} \frac{x^{n+2}}{(n+2) n!} & = (x-1)e^x + 1 \\
