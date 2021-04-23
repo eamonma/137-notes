@@ -11,7 +11,6 @@
 \subsectionfont{\color{green}\selectfont}
 
 \newcommand{\eg}{\textbf{e.g.}~}
-\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
 \newcommand\Ccancel[2][black]{\renewcommand\CancelColor{\color{#1}}\cancel{#2}}
 
 \begin{document}
@@ -69,7 +68,7 @@ To answer the original question, the domain of \(g = [-3, 3)\) = the \textsc{int
 }
 
 \begin{center}
-    Domain \(f = \{x \in \R ~ : ~ \text{teh series \(f(x)\) is convergent}\}\)
+    Domain \(f = \{x \in \R ~ : ~ \text{the series \(f(x)\) is convergent}\}\)
 \end{center}
 Note: \(a \in\) Domain \(f\) \\
 Ultimate goal: write common functions as power series.
@@ -196,7 +195,7 @@ I have used that \(f\) and \(g\) were \(C^n\).
     Let \(f\) and \(g\) be \(C^n\) functions at \(a\). \\
     The following are equivalent: \begin{enumerate}
         \item \DS{\lim_{x\to a} \frac{f(x) - g(x)}{(x-a)^n} = 0} \\ (``\(g\) is a good approximation for \(f\) near \(a\)'')
-        \item \DS{f(a) = g(a), f'(a) = g'(a), \dots, f^{n}(a) = g^{n}(a)} \\ (``\(g\) and \(f\) have the same first few derivatives at \(a\)'')
+        \item \DS{f(a) = g(a), f'(a) = g'(a), \dots, f^{(n)}(a) = g^{(n)}(a)} \\ (``\(g\) and \(f\) have the same first few derivatives at \(a\)'')
     \end{enumerate}
 }
 This proof could be made more formal by using induction.
@@ -240,10 +239,9 @@ For simplicity, begin with: \\
     P_n''(0)     & = f''(0)     \\
     \dots                       \\
     P_n^{(n)}(0) & = f^{(n)}(0)
-\end{align*}
-So, \begin{align*}
-    P_n^{(k)}(0) & = k! \cdot c_k = f^{(k)} \\
-    c_k = \frac{f^{(k)}(0)}{k!}             \\
+    \intertext{So,}
+    P_n^{(k)}(0) & = k! \cdot c_k = f^{(k)}(0) \\
+    c_k &= \frac{f^{(k)}(0)}{k!}             \\
     \boxed{P_n(x) = \sum_{k = 0}^{n} \frac{f^{(k)}(0)}{k!} x^k}
 \end{align*}
 Now, how do we \\
@@ -280,7 +278,7 @@ We can see that the higher degree the Taylor polynomial is, the more accurate th
         \item Let \(f\) be a \(C^\infty\) function at \(a\)
     \end{itemize}
     The \underline{Taylor series} for \(f\) at \(a\) is the power series \begin{align*}
-        S(x) = \sum_{k = 0}^{\infty} \frac{f^{(k)}(a)}{k!} (x - a)^k
+        S(x) = \sum_{k = 0}^{{\color{red}\infty}} \frac{f^{(k)}(a)}{k!} (x - a)^k
     \end{align*}
 }
 Equivalently, \(\forall k \in \N,~ S^{(k)}(a) = f^{(k)}(a)\) \\
@@ -695,7 +693,6 @@ Indeed, the classical expression for kinetic energy is the smallest nonzero Tayl
          T &= m_0 c^2 \sbr{\frac{1}{\sqrt{1 - (\frac{v}{c})^2} } - 1}\approx m_0 c^2 \sbr{\frac{1}{2}\br{\frac{v}{c}}^2} \quad \text{substituting} \\
            &= \frac{1}{2}m_0 v^2    
 .\end{align*}
-\begin{align*}
-    \vec{v} = \vec{u} - \vec{f},.,.,..,.,
-.\end{align*}
+Re
 \end{document}
+
